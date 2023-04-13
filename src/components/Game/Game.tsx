@@ -12,7 +12,7 @@ const GuessGame = () => {
   const [guessInput, setGuessInput] = useState<string | undefined>("");
   const [randomNumber, setRandomNumber] = useLocalStorage<number | undefined>(
     "random",
-    0
+    16
   );
   const [startGame, setStartGame] = useState<boolean>(false);
   const [displayPlayAgain, setDisplayPlayAgain] = useLocalStorage<boolean>(
