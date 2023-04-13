@@ -21,6 +21,7 @@ const FormComp: FC<IFormCompProps> = ({
     e.preventDefault();
     setGuessInput("");
     processGuessGame();
+ 
   };
   return (
     <form onSubmit={handleSubmit}>

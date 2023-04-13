@@ -10,8 +10,11 @@ import "./Game.css";
 
 const GuessGame = () => {
   const [guessInput, setGuessInput] = useState<string | undefined>("");
-  const [randomNumber, setRandomNumber] = useState<number | undefined>();
-  const [startGame, setStartGame] = useState<boolean>(false)
+  const [randomNumber, setRandomNumber] = useLocalStorage<number | undefined>(
+    "random",
+    0
+  );
+  const [startGame, setStartGame] = useState<boolean>(false);
   const [displayPlayAgain, setDisplayPlayAgain] = useLocalStorage<boolean>(
     "display",
     false
@@ -20,15 +23,14 @@ const GuessGame = () => {
     "feed",
     []
   );
-
   const processGuessGame = () => {
     let feedbackText: string;
     if (guessInput) {
       const guess = Number(guessInput);
-      if (guess === randomNumber) {
+      if (guess === Number(randomNumber)) {
         feedbackText = `${guess} ${message.correct}`;
         setDisplayPlayAgain(true);
-      } else if (guess > randomNumber!) {
+      } else if (guess > Number(randomNumber)!) {
         feedbackText = `${guess} ${message.high}`;
       } else {
         feedbackText = `${guess} ${message.low}`;
@@ -38,8 +40,10 @@ const GuessGame = () => {
   };
 
   useEffect(() => {
-    const random = generateRandomNumber(30);
-    setRandomNumber(random);
+    if (startGame) {
+      const random = generateRandomNumber(30);
+      setRandomNumber(random);
+    }
   }, [startGame]);
 
   return (

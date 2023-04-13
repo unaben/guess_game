@@ -18,7 +18,7 @@ const PlayAgain: FC<IPlayAgainProps> = ({
       onClick={() => {
         setDisplayPlayAgain(false);
         setFeedback([]);
-        setStartGame(true);
+        setStartGame((prevState) => !prevState);
       }}
       id="again-button"
       className="btn"
