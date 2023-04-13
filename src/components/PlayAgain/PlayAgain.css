@@ -1,0 +1,7 @@
+#again-button {
+  background-color: var(--clr-secondary-bg);
+}
+
+#again-button:hover {
+  background-color: var(--clr-hover-secondary-bg);
+}

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders correctly 1`] = `
+<div>
+  <h1>
+    Let's play a numbers game
+  </h1>
+  <p
+    class="guess"
+    data-testid="guess"
+  >
+    Guess a number between 1 and 30
+  </p>
+</div>
+`;
