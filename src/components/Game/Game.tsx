@@ -9,8 +9,9 @@ import { useLocalStorage } from "../../hook/useLocalStorage";
 import "./Game.css";
 
 const GuessGame = () => {
-  const [guessInput, setGuessInput] = useState<string>();
+  const [guessInput, setGuessInput] = useState<string | undefined>("");
   const [randomNumber, setRandomNumber] = useState<number | undefined>();
+  const [startGame, setStartGame] = useState<boolean>(false)
   const [displayPlayAgain, setDisplayPlayAgain] = useLocalStorage<boolean>(
     "display",
     false
@@ -39,7 +40,7 @@ const GuessGame = () => {
   useEffect(() => {
     const random = generateRandomNumber(30);
     setRandomNumber(random);
-  }, [displayPlayAgain]);
+  }, [startGame]);
 
   return (
     <div className="container">
@@ -49,6 +50,7 @@ const GuessGame = () => {
         setGuessInput={setGuessInput}
         processGuessGame={processGuessGame}
         displayPlayAgain={displayPlayAgain}
+        randomNumber={randomNumber}
       />
       <section>
         <div id="feedback">
@@ -62,6 +64,7 @@ const GuessGame = () => {
           <PlayAgain
             setDisplayPlayAgain={setDisplayPlayAgain}
             setFeedback={setFeedback}
+            setStartGame={setStartGame}
           />
         </section>
       )}

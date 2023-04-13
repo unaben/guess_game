@@ -7,4 +7,5 @@ export interface ILocalization {
   correct: string;
   low: string;
   high: string;
+  winningText: string;
 }

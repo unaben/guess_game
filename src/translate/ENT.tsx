@@ -9,4 +9,5 @@ export const message = {
   correct: "is correct ... You win!",
   low: "is too low",
   high: "is too high",
+  winningText: "Winning number is ",
 } as ILocalization;

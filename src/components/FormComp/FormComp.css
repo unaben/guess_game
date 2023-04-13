@@ -2,7 +2,8 @@
   text-align: center;
 }
 
-form {
+form,
+.button-container p {
   margin-top: 1rem;
 }
 

@@ -7,6 +7,7 @@ type IFormCompProps = {
   setGuessInput: React.Dispatch<React.SetStateAction<string | undefined>>;
   processGuessGame: () => void;
   displayPlayAgain: boolean;
+  randomNumber: number | undefined;
 };
 
 const FormComp: FC<IFormCompProps> = ({
@@ -14,6 +15,7 @@ const FormComp: FC<IFormCompProps> = ({
   setGuessInput,
   processGuessGame,
   displayPlayAgain,
+  randomNumber,
 }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,6 +34,11 @@ const FormComp: FC<IFormCompProps> = ({
         />
       </div>
       <div className="button-container">
+        {displayPlayAgain && (
+          <p>
+            {message.winningText} {randomNumber}
+          </p>
+        )}
         <button
           type="submit"
           id="guess-button"
